@@ -4,7 +4,7 @@ import {NgForm} from '@angular/forms';
 import {SetLocationPage} from "../set-location/set-location";
 import {Location} from "../../models/location";
 //import { NativeGeocoder } from '@ionic-native/native-geocoder';
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
@@ -51,19 +51,19 @@ export class AddPlacePage {
 
   }
 
-  onLocate() {
-    Geolocation.getCurrentPosition()
-      .then(
-        location => {
-          this.location.lat = location.coords.latitude;
-          this.location.lng = location.coords.longitude;
-          this.locationIsSet = true;
-        }
-      )
-      .catch(
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // onLocate() {
+  //   this.geolocation.getCurrentPosition()
+  //     .then(
+  //       location => {
+  //         this.location.lat = location.coords.latitude;
+  //         this.location.lng = location.coords.longitude;
+  //         this.locationIsSet = true;
+  //       }
+  //     )
+  //     .catch(
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 }
