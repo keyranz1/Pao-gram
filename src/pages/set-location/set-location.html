@@ -11,4 +11,16 @@
   <agm-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="16" (mapClick)="onSetMarker($event)">
     <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" *ngIf="marker"></agm-marker>
   </agm-map>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="secondary" [disabled]="!marker" (click)="onConfirm()">
+          Confirm
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block color="danger" (click)="onClose()">Close</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
