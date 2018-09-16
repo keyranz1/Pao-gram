@@ -34,13 +34,17 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
+  primary: #35a1ef,
+  secondary: #0e9643,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  light: #fffefd,
+  dark:       #222,
+  yell: #ffff00,
+  gr: #0e9643
+  //navColor: linear-gradient(100deg,#0e9643,#f5ff13)
 );
 
+$navColor : linear-gradient(to bottom,color($colors,primary) 0%,color($colors,secondary) 100%);
 
 // App iOS Variables
 // --------------------------------------------------
