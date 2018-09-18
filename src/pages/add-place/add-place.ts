@@ -5,6 +5,8 @@ import {SetLocationPage} from "../set-location/set-location";
 import {Location} from "../../models/location";
 //import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 
 @IonicPage()
 @Component({
@@ -17,7 +19,11 @@ export class AddPlacePage {
     lng:  -90.468229
   }
   locationIsSet = false;
-  constructor(private modalCtrl: ModalController) {}
+
+  imageUrl = '';
+
+
+  constructor(private modalCtrl: ModalController, private camera:Camera) {}
 
 
   onSubmit(form: NgForm){
@@ -33,9 +39,7 @@ export class AddPlacePage {
           this.location = data.location;
           this.locationIsSet = true;
 
-
         }
-
         // let options: NativeGeocoderOptions = {
         //   useLocale: true,
         //   maxResults: 5
@@ -44,13 +48,9 @@ export class AddPlacePage {
         // this.natGeoCode.reverseGeocode(Number("location.lat"),Number("location.lng"), options)
         //   .then((result: NativeGeocoderReverseResult[]) => console.log(JSON.stringify(result[0])))
         //   .catch((error: any) => console.log(error));
-
-
       }
     );
-
   }
-
   // onLocate() {
   //   this.geolocation.getCurrentPosition()
   //     .then(
@@ -66,4 +66,16 @@ export class AddPlacePage {
   //       }
   //     );
   // }
+
+  onTakingPicture(){
+    this.camera.getPicture({
+      encodingType: this.camera.EncodingType.JPEG,
+      correctOrientation: true
+    }).then( imageData => {
+      this.imageUrl = imageData;
+      console.log(this.imageUrl);
+    }).catch( err => {
+      console.log(err);
+    });
+  }
 }
