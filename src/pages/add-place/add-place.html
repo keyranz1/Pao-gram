@@ -34,7 +34,7 @@
           </ion-col>
           <ion-col>
             <button ion-button block outline type="button" icon-left (click)="onOpenMap()">
-              <ion-icon name="map"></ion-icon> Select on Map
+              <ion-icon name="map" ></ion-icon> Select on Map
             </button>
           </ion-col>
         </ion-row>
@@ -69,9 +69,11 @@
 
         <ion-row>
           <ion-col>
-            <button ion-button color="secondary" block type="submit" [disabled]="!form.valid || !locationIsSet">Add this to memory</button>
+            <button ion-button color="secondary" block type="submit" >Add this to memory</button>
           </ion-col>
         </ion-row>
       </ion-grid>
     </form>
 </ion-content>
+
+<!--[disabled]="!form.valid || !locationIsSet"-->

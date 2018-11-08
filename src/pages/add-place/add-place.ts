@@ -4,9 +4,10 @@ import {NgForm} from '@angular/forms';
 import {SetLocationPage} from "../set-location/set-location";
 import {Location} from "../../models/location";
 //import { NativeGeocoder } from '@ionic-native/native-geocoder';
-import { Geolocation } from '@ionic-native/geolocation';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-
+//import { Geolocation } from '@ionic-native/geolocation';
+import { Camera } from '@ionic-native/camera';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireStorage} from 'angularfire2/storage';
 
 @IonicPage()
 @Component({
@@ -21,13 +22,24 @@ export class AddPlacePage {
   locationIsSet = false;
 
   imageUrl = '';
+  post: any;
 
 
-  constructor(private modalCtrl: ModalController, private camera:Camera) {}
+  constructor(private modalCtrl: ModalController, private camera:Camera, public db: AngularFireDatabase, public storage: AngularFireStorage) {
+    this.post = this.db.list('/post');
+    this.post.push({'title': 'a sample another post'});
+    // this.post.push({'imgSrc': this.imageUrl})
+    // console.log('posts : ', this.post);
+  }
 
 
   onSubmit(form: NgForm){
     console.log(form.value);
+    console.log(this.location);
+    const ref = this.storage.ref('post');
+    // ref.put()
+    this.post.push({'imgSrc': this.imageUrl})
+    console.log('posts : ', this.post);
   }
 
   onOpenMap() {
@@ -52,7 +64,7 @@ export class AddPlacePage {
     );
   }
   // onLocate() {
-  //   this.geolocation.getCurrentPosition()
+  //   this.Geolocation.getCurrentPosition()
   //     .then(
   //       location => {
   //         this.location.lat = location.coords.latitude;
@@ -70,10 +82,15 @@ export class AddPlacePage {
   onTakingPicture(){
     this.camera.getPicture({
       encodingType: this.camera.EncodingType.JPEG,
+      // destinationType: this.camera.DestinationType.FILE_URI,
+      // mediaType: this.camera.MediaType.PICTURE,
       correctOrientation: true
     }).then( imageData => {
-      this.imageUrl = imageData;
+      console.log("Image : "+ this.imageUrl);
+      let base64Img =  imageData;
+      this.imageUrl = base64Img;
       console.log(this.imageUrl);
+      // alert("image : "+this.imageUrl);
     }).catch( err => {
       console.log(err);
     });
