@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService} from "../../services/auth.service";
+import { SignupPage } from '../signup/signup';
 import {HomePage} from "../home/home";
 
 /**
