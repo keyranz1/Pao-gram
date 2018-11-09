@@ -1,4 +1,4 @@
-<!ion-header>
+<ion-header>
 
 <ion-navbar>
   <ion-title>login</ion-title>
@@ -25,6 +25,10 @@
       <div ngxErrors="password" #passwordErrors="ngxErrors">
         <div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 6 characters</div>
       </div>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Confirm Password" ></ion-input>
+      </ion-item>
 
       <div class="form-error">{{signupError}}</div>
 

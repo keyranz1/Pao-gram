@@ -23,8 +23,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBd: FormBuilder, private auth: AuthService) {
 
       this.loginForm = formBd.group({
-          email: ['kiran@gmail.com',Validators.compose([Validators.required, Validators.email])],
-          password: ['Loveuu123',Validators.compose([Validators.required, Validators.minLength(6)])]
+          email: ['',Validators.compose([Validators.required, Validators.email])],
+          password: ['',Validators.compose([Validators.required, Validators.minLength(6)])]
       });
 
   }
@@ -47,6 +47,10 @@ export class LoginPage {
           error => this.loginError = error.message
         );
 
+  }
+
+  signup(){
+    this.navCtrl.push(SignupPage);
   }
 
 }

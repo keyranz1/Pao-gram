@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
+  <ion-navbar color = "gr">
+    <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +18,7 @@
     <ion-card>
       <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
         <ion-label stacked>Username</ion-label>
-        <ion-input type="text" placeholder="_______________________________________________" formControlName="email"></ion-input>
+        <ion-input type="text" placeholder="" formControlName="email"></ion-input>
       </ion-item>
 
       <div ngxErrors="email" #emailErrors="ngxErrors">
@@ -27,7 +27,7 @@
 
       <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
         <ion-label stacked>Password</ion-label>
-        <ion-input type="password" placeholder="________________________________________________________" formControlName="password"></ion-input>
+        <ion-input type="password" placeholder="" formControlName="password"></ion-input>
       </ion-item>
 
       <div ngxErrors="password" #passwordErrors="ngxErrors">
@@ -35,9 +35,19 @@
       </div>
       <div class="form-error">{{loginError}}</div>
 
-      <button ion-button type="submit" [disabled]="!loginForm.valid">Sign In</button>
-      <button ion-button clear type="button"
+      <button ion-button type="submit" [disabled]="!loginForm.valid">Sign In</button><br>
+      <button ion-button clear type="button" (click)="signup()">Register</button>
+
 
     </ion-card>
+
   </form>
+
+  <p ion-text color="gr" style = "font-size:400%;">
+    Welcome to Pao-Gram!
+
+
+  </p>
+
 </ion-content>
+

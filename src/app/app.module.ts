@@ -30,6 +30,7 @@ import {AngularFireStorageModule} from 'angularfire2/storage';
     MyApp,
     HomePage,
     LoginPage,
+    SignupPage,
     PlacePage,
     AddPlacePage,
     SetLocationPage
