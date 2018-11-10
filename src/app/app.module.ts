@@ -3,13 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from "../pages/login/login";
 import { SignupPage } from '../pages/signup/signup';
 
+import { Geolocation } from '@ionic-native/geolocation'
 import {AddPlacePage} from "../pages/add-place/add-place";
 import {PlacePage} from "../pages/place/place";
 import {SetLocationPage} from "../pages/set-location/set-location";
@@ -24,7 +25,8 @@ import { NgxErrorsModule } from "@ultimate/ngxerrors";
 import { AuthService} from "../services/auth.service";
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireStorageModule} from 'angularfire2/storage';
-
+import { ImageUploaderProvider } from '../providers/image-uploader/image-uploader';
+import { ImagePicker } from '@ionic-native/image-picker';
 @NgModule({
   declarations: [
     MyApp,
@@ -39,12 +41,13 @@ import {AngularFireStorageModule} from 'angularfire2/storage';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyByQa8WbkzThK8elTt0Z0ngWg0joWIQPy8'
+      apiKey: 'AIzaSyCPew8azgknFxwg-z-rbvw6i7DgXODeHis'
     }),
     AngularFireModule.initializeApp(firebaseConfig.fire, 'pao-gram-1537080620052'),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    NgxErrorsModule
+    NgxErrorsModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -62,7 +65,11 @@ import {AngularFireStorageModule} from 'angularfire2/storage';
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    AuthService
+    AuthService,
+    ImageUploaderProvider,
+    HttpClient,
+    ImagePicker,
+    Geolocation
   ]
 })
 export class AppModule {}
