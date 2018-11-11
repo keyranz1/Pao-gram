@@ -9,8 +9,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from "../pages/login/login";
 import { SignupPage } from '../pages/signup/signup';
+import { MyprofilePage} from "../pages/myprofile/myprofile";
 
-import { Geolocation } from '@ionic-native/geolocation'
+import { Geolocation } from '@ionic-native/geolocation';
 import {AddPlacePage} from "../pages/add-place/add-place";
 import {PlacePage} from "../pages/place/place";
 import {SetLocationPage} from "../pages/set-location/set-location";
@@ -35,6 +36,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     SignupPage,
     PlacePage,
     AddPlacePage,
+    MyprofilePage,
     SetLocationPage
   ],
   imports: [
@@ -57,6 +59,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     AddPlacePage,
     SetLocationPage,
     LoginPage,
+    MyprofilePage,
     SignupPage
   ],
   providers: [
