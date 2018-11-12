@@ -5,21 +5,20 @@ page-myprofile {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    background-color: white;
+
   }
 
   .flex-container {
     display: flex;
     justify-content: center;
-    background-color: white;
   }
 
   .flex-container > div {
-    background-color: white;
     margin: 10px;
     text-align: center;
     line-height: 75px;
     font-size: 30px;
+    color: #0e9643;
   }
 
 }
